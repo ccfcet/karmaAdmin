@@ -128,17 +128,22 @@ body {
 
 .edit-icon {
   margin-right: 4px;
-  font-size: 20px;
+  font-size: 1.5rem;
   color: #ffc107;
   cursor: pointer;
 }
 
 .delete-icon {
-  font-size: 20px;
+  font-size: 1.5rem;
   color: #dc3545;
   cursor: pointer;
 }
 
 .search-bar {
   max-width: 25%;
+}
+
+.active-link {
+  font-size: 1rem;
+  color: #007bff;
 }

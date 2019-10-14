@@ -11,7 +11,7 @@ function Sidebar() {
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link" href="#submenu-student" data-toggle="collapse" aria-expanded="false" aria-controls="#submenu-student">
-              <span data-feather="home"></span>
+              <span data-feather="user"></span>
               Student
             </a>
             <div class="collapse" id="submenu-student">
@@ -45,7 +45,7 @@ function Sidebar() {
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#submenu-people" data-toggle="collapse" aria-expanded="false" aria-controls="#submenu-people">
-              <span data-feather="home"></span>
+              <span data-feather="users"></span>
               People
             </a>
             <div class="collapse" id="submenu-people">
@@ -64,7 +64,7 @@ function Sidebar() {
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#submenu-academics" data-toggle="collapse" aria-expanded="false" aria-controls="#submenu-academics">
-              <span data-feather="home"></span>
+              <span data-feather="book"></span>
               Academics
             </a>
             <div class="collapse" id="submenu-academics">
