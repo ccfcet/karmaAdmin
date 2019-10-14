@@ -1,9 +1,10 @@
 Design:
-    Make sidebar elements as Dropdowns
-    Handle Insert and Edit
+    Make sidebar elements as Dropdowns (DONE)
+    Make Modals for Insert and Edit
 Functionality:
+    Fix Feather.replace()
     Split design into components (DONE)
-    Add Navigations
-    Dynamically load the components
+    Add Navigations (DONE)
+    Dynamically load the components (DONE)
     GET data
     Implement functionality for POST, DELETE and PUT
