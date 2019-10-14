@@ -11,37 +11,23 @@
     <link rel="canonical" href="index.html">
 
     <!-- Bootstrap core CSS -->
-<link href="./css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="./css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Font Awesome 4.7 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    <!-- Custom styles for this template -->
-    <link href="./css/dashboard.css" rel="stylesheet">
+    <!-- Custom style-->
+    <link href="./css/style.css" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.html#">karma Admin</a>
-  <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-      <a class="nav-link" href="index.html#">Sign out</a>
-    </li>
-  </ul>
-</nav>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.html#">karma Admin</a>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <!-- <a class="nav-link" href="index.html#">Sign out</a> -->
+            </li>
+        </ul>
+    </nav>
 
 <div class="container-fluid">
   <div class="row">
@@ -51,87 +37,62 @@
           <li class="nav-item">
             <a class="nav-link active" href="index.html#">
               <span data-feather="home"></span>
-              Dashboard <span class="sr-only">(current)</span>
+              Academics <span class="sr-only">(current)</span>
             </a>
+            <ul class="nav flex-column sublist">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Courses Offered</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Streams Offered</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Classes</a>
+                </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.html#">
               <span data-feather="file"></span>
-              Orders
+              People
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.html#">
               <span data-feather="shopping-cart"></span>
-              Products
+              Student
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.html#">
               <span data-feather="users"></span>
-              Customers
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#">
-              <span data-feather="bar-chart-2"></span>
-              Reports
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#">
-              <span data-feather="layers"></span>
-              Integrations
+              Faculty
             </a>
           </li>
         </ul>
 
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Saved reports</span>
-          <a class="d-flex align-items-center text-muted" href="index.html#">
-            <span data-feather="plus-circle"></span>
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#">
-              <span data-feather="file-text"></span>
-              Current month
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#">
-              <span data-feather="file-text"></span>
-              Last quarter
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#">
-              <span data-feather="file-text"></span>
-              Social engagement
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#">
-              <span data-feather="file-text"></span>
-              Year-end sale
-            </a>
-          </li>
-        </ul>
       </div>
     </nav>
-
+    
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-      <h2 class="content-head">Section title</h2>
+      <h3 class="content-head">Courses Offered</h2>
       <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
+        <div class="btn-container text-right">
+            <button type="button" class="btn btn-success"><i class="fa fa-plus-circle add-button"></i> Insert</button> 
+        </div>
+        
+        <table class="table table-striped">
+          <thead class="thead-dark">
             <tr>
               <th>#</th>
-              <th>Header</th>
-              <th>Header</th>
-              <th>Header</th>
-              <th>Header</th>
+              <th>Official Course ID</th>
+              <th>Name</th>
+              <th>Deparment ID</th>
+              <th>Credits</th>
+              <th>Valid Start Date</th>
+              <th>Valid End Date</th>
+              <th>Duration in Days</th>
+              <th>Options</th>
             </tr>
           </thead>
           <tbody>
@@ -140,10 +101,53 @@
               <td>Lorem</td>
               <td>ipsum</td>
               <td>dolor</td>
-              <td>sit</td>
+              <td>dolor</td>
+              <td>dolor</td>
+              <td>dolor</td>
+              <td>dolor</td>
+              <td><i class="fa fa-pencil edit-icon"></i><i class="fa fa-minus-circle delete-icon"></i></td>
+            </tr>
+            <tr>
+              <td>1,001</td>
+              <td>Lorem</td>
+              <td>ipsum</td>
+              <td>dolor</td>
+              <td>dolor</td>
+              <td>dolor</td>
+              <td>dolor</td>
+              <td>dolor</td>
+              <td><i class="fa fa-pencil edit-icon"></i><i class="fa fa-minus-circle delete-icon"></i></td>
+            </tr>
+            <tr>
+              <td>1,001</td>
+              <td>Lorem</td>
+              <td>ipsum</td>
+              <td>dolor</td>
+              <td>dolor</td>
+              <td>dolor</td>
+              <td>dolor</td>
+              <td>dolor</td>
+              <td><i class="fa fa-pencil edit-icon"></i><i class="fa fa-minus-circle delete-icon"></i></td>
             </tr>
           </tbody>
         </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
       </div>
     </main>
   </div>
@@ -152,5 +156,5 @@
       <script>window.jQuery || document.write('<script src="./js/jquery-slim.min.js"><\/script>')</script><script src="./js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-        <script src="./js/dashboard.js"></script></body>
+        <script src="./js/script.js"></script></body>
 </html>

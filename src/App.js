@@ -1,9 +1,19 @@
 import React from 'react';
 
+import Topnav from './components/Topnav'
+import Sidebar from './components/Sidebar'
+import Main from './components/Main'
+
 function App() {
   return (
     <div>
-      <h3>Hello, World!</h3>
+      <Topnav />
+      <div class="container-fluid">
+        <div class="row">
+          <Sidebar />
+          <Main />
+        </div>
+      </div>
     </div>
   );
 }

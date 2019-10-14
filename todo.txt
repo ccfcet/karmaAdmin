@@ -1,0 +1,8 @@
+Frontend
+    Make sidebar elements as dropdown (DONE)
+    Handle Insert and Edit
+Backend
+    Split design into components
+    Dynamically load the components
+    GET and load data
+    Implement functionality for POST, DELETE and PUT
