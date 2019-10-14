@@ -1,8 +1,9 @@
-Frontend
-    Make sidebar elements as dropdown (DONE)
+Design:
+    Make sidebar elements as Dropdowns
     Handle Insert and Edit
-Backend
-    Split design into components
+Functionality:
+    Split design into components (DONE)
+    Add Navigations
     Dynamically load the components
-    GET and load data
+    GET data
     Implement functionality for POST, DELETE and PUT

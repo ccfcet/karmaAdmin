@@ -6,11 +6,12 @@ function Sidebar() {
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="index.html#">
+            <a class="nav-link active" href="#submenu" data-toggle="collapse" aria-expanded="false" aria-controls="#submenu">
               <span data-feather="home"></span>
               Academics <span class="sr-only">(current)</span>
             </a>
-            <ul class="nav flex-column sublist">
+            <div class="collapse" id="submenu">
+              <ul class="nav flex-column sublist">
                 <li class="nav-item">
                     <a class="nav-link active" href="#">Courses Offered</a>
                 </li>
@@ -20,7 +21,8 @@ function Sidebar() {
                 <li class="nav-item">
                     <a class="nav-link" href="#">Classes</a>
                 </li>
-            </ul>
+              </ul>
+            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.html#">
