@@ -2,6 +2,7 @@ Design:
     Make sidebar elements as Dropdowns (DONE)
     Make Modals for Insert and Edit
 Functionality:
+    Add Animation If possible
     Fix Feather.replace()
     Split design into components (DONE)
     Add Navigations (DONE)

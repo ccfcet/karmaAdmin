@@ -19,6 +19,7 @@ import CourseEnrollmentActivity from './components/Pages/Student/CourseEnrollmen
 import People from './components/Pages/People/People';
 import PeopleInformation from './components/Pages/People/PeopleInformation';
 import PeopleInformationSlug from './components/Pages/People/PeopleInformationSlug';
+import Home from './components/Home';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <div class="row">
           <Sidebar />
           <Switch>
+            <Route exact path="/" component={Home} />
             <Route path="/student/course-grades" component={CourseGrades} />
             <Route path="/student/attendance-data" component={AttendanceData} />
             <Route path="/student/grade-association" component={GradeAssociation} />
