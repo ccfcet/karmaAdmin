@@ -1,11 +1,13 @@
 Design:
     Make sidebar elements as Dropdowns (DONE)
-    Make Modals for Insert and Edit
+    Make Modal for Insert
+    Make Navbrand look pretty
 Functionality:
-    Add Animation If possible
+    Add Animation (DONE)
     Fix Feather.replace()
     Split design into components (DONE)
     Add Navigations (DONE)
     Dynamically load the components (DONE)
+    Make something for Edit
     GET data
     Implement functionality for POST, DELETE and PUT

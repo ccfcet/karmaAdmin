@@ -1,5 +1,6 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 import Topnav from './components/Topnav'
 import Sidebar from './components/Sidebar'
@@ -23,30 +24,43 @@ import Home from './components/Home';
 
 
 function App() {
+  const timeout = {enter: 800, exit: 400}
   return (
-    <Router>
+      <div>
       <Topnav />
       <div class="container-fluid">
         <div class="row">
           <Sidebar />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/student/course-grades" component={CourseGrades} />
-            <Route path="/student/attendance-data" component={AttendanceData} />
-            <Route path="/student/grade-association" component={GradeAssociation} />
-            <Route path="/student/course-grading-standards" component={CourseGradingStandards} />
-            <Route path="/student/course-internal-assessment" component={CourseInternalAssessment} />
-            <Route path="/student/class-enrollment-activity" component={ClassEnrollmentActivity} />
-            <Route path="/student/stream-enrollment-activity" component={StreamEnrollmentActivity} />
-            <Route path="/student/course-enrollment-activity" component={CourseEnrollmentActivity} />
-            <Route exact path="/people" component={People} />
-            <Route path="/people/information" component={PeopleInformation} />
-            <Route path="/people/information-slug" component={PeopleInformationSlug} />
-            <Route path="/academics/courses-offered" component={CoursesOffered} />
-          </Switch>
+          <Route render={({location}) => (
+              <TransitionGroup>
+              <CSSTransition
+                key={location.key}
+                timeout={timeout}
+                classNames="item"
+                mountOnEnter={false}
+                unmountOnExit={true}
+              > 
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/student/course-grades" component={CourseGrades} />
+                <Route path="/student/attendance-data" component={AttendanceData} />
+                <Route path="/student/grade-association" component={GradeAssociation} />
+                <Route path="/student/course-grading-standards" component={CourseGradingStandards} />
+                <Route path="/student/course-internal-assessment" component={CourseInternalAssessment} />
+                <Route path="/student/class-enrollment-activity" component={ClassEnrollmentActivity} />
+                <Route path="/student/stream-enrollment-activity" component={StreamEnrollmentActivity} />
+                <Route path="/student/course-enrollment-activity" component={CourseEnrollmentActivity} />
+                <Route exact path="/people" component={People} />
+                <Route path="/people/information" component={PeopleInformation} />
+                <Route path="/people/information-slug" component={PeopleInformationSlug} />
+                <Route path="/academics/courses-offered" component={CoursesOffered} />
+              </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+          )} />
         </div>
       </div>
-    </Router>
+      </div>
   );
 }
 
