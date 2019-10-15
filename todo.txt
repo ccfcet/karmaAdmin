@@ -1,6 +1,6 @@
 Design:
     Make sidebar elements as Dropdowns (DONE)
-    Make Modal for Insert
+    Make Modal for Insert (DONE)
     Make Navbrand look pretty
 Functionality:
     Add Animation (DONE)

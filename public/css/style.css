@@ -109,7 +109,7 @@ body {
 }
 
 .content-head {
-  margin-top: 1rem !important;
+  margin-top: 1.3rem !important;
   margin-bottom: 1rem;
 }
 
@@ -166,4 +166,22 @@ body {
 main {
   position: absolute !important;
   right: 0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.icon-brand {
+  display: inline;
+  margin-right: .2rem;
+  border: 2px solid white;
+  border-radius: .2rem;
+  padding: .3rem;
+  font-weight: normal;
+}
+
+.sidebar-sticky {
+  margin-top: .7rem;
 }

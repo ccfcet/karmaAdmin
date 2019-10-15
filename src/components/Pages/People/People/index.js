@@ -6,7 +6,7 @@ function People() {
       <h3 class="content-head">People</h3>
       <div class="table-responsive">
         <div class="btn-container text-right">
-            <button type="button" class="btn btn-success"><i class="fa fa-plus-circle add-button"></i> Insert</button> 
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#insertModal"><i class="fa fa-plus-circle add-button"></i> Insert</button> 
         </div>
         
         <table class="table table-striped">
@@ -52,6 +52,61 @@ function People() {
                 </li>
             </ul>
         </nav>
+      </div>
+      <div class="modal fade" id="insertModal" tabindex="-1" role="dialog" aria-labelledby="insertModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="insertModalLabel">Insert into People</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <form>
+              <div class="form-group row">
+                <label for="input2" class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="input2" placeholder="First Name" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="input3" class="col-sm-2 col-form-label">Middle Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="input3" placeholder="Middle Name" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="input4" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="input4" placeholder="Last Name" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="input4" class="col-sm-2 col-form-label">Gender</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="input4" placeholder="Gender" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="input5" class="col-sm-2 col-form-label">Date of Birth</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="input5" placeholder="Date of Birth" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="input6" class="col-sm-2 col-form-label">Nationality</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="input6" placeholder="Nationality" />
+                </div>
+              </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-success">Insert</button>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );

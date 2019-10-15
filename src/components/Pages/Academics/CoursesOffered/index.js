@@ -90,12 +90,6 @@ function CoursesOffered() {
             <div class="modal-body">
             <form>
               <div class="form-group row">
-                <label for="input1" class="col-sm-2 col-form-label">ID</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input1" placeholder="Email" />
-                </div>
-              </div>
-              <div class="form-group row">
                 <label for="input2" class="col-sm-2 col-form-label">Official Course ID</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="input2" placeholder="Official Course ID" />
