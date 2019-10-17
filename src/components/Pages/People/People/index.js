@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
+let api_root = process.env.REACT_APP_API_ROOT
 function People() {
 
   const [data, setData] = useState([])
-  let api_root = 'http://api.cet.ac.in/'
 
   useEffect(() => {
     axios.get(api_root + 'private/people/people')
@@ -32,6 +31,28 @@ function People() {
     )
   })
 
+  function handleChange(e) {
+  }
+
+  function handlePost(e) {
+    e.preventDefault();
+    let newData = {
+      'firstName': e.target.firstName.value,
+      'middleName': e.target.middleName.value,
+      'lastName': e.target.lastName.value,
+      'gender': e.target.gender.value,
+      'dateOfBirth': e.target.dateOfBirth.value,
+      'nationality': e.target.nationality.value,
+    }
+    axios.post(api_root + 'private/people/people', newData)
+    .then(response => {
+      console.log(response)
+    }).catch(error => {
+      console.log(error)
+    })
+    
+  }
+
   return (
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <h3 class="content-head">People</h3>
@@ -54,14 +75,6 @@ function People() {
             </tr>
           </thead>
           <tbody>
-              {/* <td>1,001</td>
-              <td>Lorem</td>
-              <td>ipsum</td>
-              <td>dolor</td>
-              <td>dolor</td>
-              <td>dolor</td>
-              <td>dolor</td>
-              <td><i class="fa fa-pencil edit-icon"></i><i class="fa fa-minus-circle delete-icon"></i></td> */}
               <>
                 {content}
               </>
@@ -75,8 +88,6 @@ function People() {
                     </a>
                 </li>
                 <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
@@ -95,47 +106,49 @@ function People() {
               </button>
             </div>
             <div class="modal-body">
-            <form>
+            <form onSubmit={handlePost}>
               <div class="form-group row">
                 <label for="input2" class="col-sm-2 col-form-label">First Name</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input2" placeholder="First Name" />
+                  <input type="text" onChange={handleChange} name="firstName" class="form-control" id="input2" placeholder="First Name" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input3" class="col-sm-2 col-form-label">Middle Name</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input3" placeholder="Middle Name" />
+                  <input type="text" onChange={handleChange} name="middleName" class="form-control" id="input3" placeholder="Middle Name" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input4" class="col-sm-2 col-form-label">Last Name</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input4" placeholder="Last Name" />
+                  <input type="text" onChange={handleChange} name="lastName" class="form-control" id="input4" placeholder="Last Name" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input4" class="col-sm-2 col-form-label">Gender</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input4" placeholder="Gender" />
+                  <input type="text" onChange={handleChange} name="gender" class="form-control" id="input4" placeholder="Gender" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input5" class="col-sm-2 col-form-label">Date of Birth</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input5" placeholder="Date of Birth" />
+                  <input type="text" onChange={handleChange} name="dateOfBirth" class="form-control" id="input5" placeholder="YYYY-MM-DD" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input6" class="col-sm-2 col-form-label">Nationality</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input6" placeholder="Nationality" />
+                  <input type="text" onChange={handleChange} name="nationality" class="form-control" id="input6" placeholder="Nationality" />
                 </div>
               </div>
-            </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-outline-success">Insert</button>
+              <div class="form-group row">
+                <div class="col">
+                      <input type="submit" class="btn btn-outline-success" value="Insert"/>
+                </div>
+              </div>
+              </form>
             </div>
           </div>
         </div>
