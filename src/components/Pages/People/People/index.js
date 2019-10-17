@@ -1,6 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 
 function People() {
+
+  const [data, setData] = useState([])
+  let api_root = 'http://api.cet.ac.in/'
+
+  useEffect(() => {
+    axios.get(api_root + 'private/people/people')
+    .then(response => {
+      console.log(response.data.classes)
+      setData(response.data.classes)
+    }).catch(error => {
+      console.log(error)
+    })
+  }, [])
+
+  let content = data.map((item, key) => {
+    return(
+        <tr>
+          <td>{item.id}</td>
+          <td>{item.first_name}</td>
+          <td>{item.middle_name}</td>
+          <td>{item.last_name}</td>
+          <td>{item.gender}</td>
+          <td>{item.date_of_birth}</td>
+          <td>{item.nationality}</td>
+          <td><i class="fa fa-pencil edit-icon"></i><i class="fa fa-minus-circle delete-icon"></i></td>
+        </tr>
+    )
+  })
+
   return (
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <h3 class="content-head">People</h3>
@@ -23,16 +54,17 @@ function People() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1,001</td>
+              {/* <td>1,001</td>
               <td>Lorem</td>
               <td>ipsum</td>
               <td>dolor</td>
               <td>dolor</td>
               <td>dolor</td>
               <td>dolor</td>
-              <td><i class="fa fa-pencil edit-icon"></i><i class="fa fa-minus-circle delete-icon"></i></td>
-            </tr>
+              <td><i class="fa fa-pencil edit-icon"></i><i class="fa fa-minus-circle delete-icon"></i></td> */}
+              <>
+                {content}
+              </>
           </tbody>
         </table>
         <nav aria-label="Page navigation example">
