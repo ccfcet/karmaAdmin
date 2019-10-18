@@ -1,8 +1,56 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+let api_root = process.env.REACT_APP_API_ROOT
 
 function CoursesOffered() {
 
-  function createEdit(id) {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    axios.get(api_root + 'public/academics/courses_offered')
+    .then(response => {
+      console.log(response.data.classes)
+      setData(response.data.classes)
+    }).catch(error => {
+      console.log(error)
+    })
+  }, [])
+
+  let content = data.map((item, key) => {
+    return(
+        <tr>
+          <td>{item.id}</td>
+          <td>{item.official_course_id}</td>
+          <td>{item.name}</td>
+          <td>{item.department_id}</td>
+          <td>{item.credits}</td>
+          <td>{item.valid_start_date}</td>
+          <td>{item.valid_end_date}</td>
+          <td>{item.duration_in_days}</td>
+          {/* <td><i class="fa fa-pencil edit-icon"></i><i class="fa fa-minus-circle delete-icon"></i></td> */}
+        </tr>
+    )
+  })
+
+  function handlePost(e) {
+    e.preventDefault();
+    let newData = {
+      'officialCourseId': e.target.officialCourseId.value,
+      'name': e.target.name.value,
+      'departmentId': e.target.departmentId.value,
+      'credits': e.target.credits.value,
+      'validStartDate': e.target.validStartDate.value,
+      'validEndDate': e.target.validEndDate.value,
+      'durationInDays': e.target.durationInDays.value,
+    }
+    axios.post(api_root + 'public/academics/courses_offered', newData)
+    .then(response => {
+      console.log(response)
+    }).catch(error => {
+      console.log(error)
+    })
+    
   }
 
   return (
@@ -24,24 +72,12 @@ function CoursesOffered() {
               <th>Valid Start Date</th>
               <th>Valid End Date</th>
               <th>Duration in Days</th>
-              <th>Options</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1,001</td>
-              <td>Lorem</td>
-              <td>ipsum</td>
-              <td>dolor</td>
-              <td>dolor</td>
-              <td>dolor</td>
-              <td>dolor</td>
-              <td>dolor</td>
-              <td>
-                <span onClick={() => {createEdit("4")}}><i class="fa fa-pencil edit-icon"></i></span>
-                <span><i class="fa fa-minus-circle delete-icon"></i></span>
-              </td>
-            </tr>
+            <>
+              {content}
+            </>
           </tbody>
         </table>
         <nav aria-label="Page navigation example">
@@ -52,8 +88,6 @@ function CoursesOffered() {
                     </a>
                 </li>
                 <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
@@ -73,53 +107,55 @@ function CoursesOffered() {
               </button>
             </div>
             <div class="modal-body">
-            <form>
+            <form onSubmit={handlePost}>
               <div class="form-group row">
                 <label for="input2" class="col-sm-2 col-form-label">Official Course ID</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input2" placeholder="Official Course ID" />
+                  <input type="text" name="officialCourseId" class="form-control" id="input2" placeholder="Official Course ID" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input3" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input3" placeholder="Name" />
+                  <input type="text" name="name" class="form-control" id="input3" placeholder="Name" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input4" class="col-sm-2 col-form-label">Department ID</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input4" placeholder="Department ID" />
+                  <input type="text" name="departmentId" class="form-control" id="input4" placeholder="Department ID" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input4" class="col-sm-2 col-form-label">Credits</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input4" placeholder="Credits" />
+                  <input type="text" name="credits" class="form-control" id="input4" placeholder="Credits" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input5" class="col-sm-2 col-form-label">Valid Start Date</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input5" placeholder="Valid Start Date" />
+                  <input type="text" name="validStartDate" class="form-control" id="input5" placeholder="Valid Start Date" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input6" class="col-sm-2 col-form-label">Valid End Date</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input6" placeholder="Valid End Date" />
+                  <input type="text" name="validEndDate" class="form-control" id="input6" placeholder="Valid End Date" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input7" class="col-sm-2 col-form-label">Duration in Days</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input7" placeholder="Duration in Days" />
+                  <input type="text" name="durationInDays" class="form-control" id="input7" placeholder="Duration in Days" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col">
+                      <input type="submit" class="btn btn-outline-success" value="Insert"/>
                 </div>
               </div>
             </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-outline-success">Insert</button>
             </div>
           </div>
         </div>

@@ -26,13 +26,10 @@ function People() {
           <td>{item.gender}</td>
           <td>{item.date_of_birth}</td>
           <td>{item.nationality}</td>
-          <td><i class="fa fa-pencil edit-icon"></i><i class="fa fa-minus-circle delete-icon"></i></td>
+          {/* <td><i class="fa fa-pencil edit-icon"></i><i class="fa fa-minus-circle delete-icon"></i></td> */}
         </tr>
     )
   })
-
-  function handleChange(e) {
-  }
 
   function handlePost(e) {
     e.preventDefault();
@@ -71,7 +68,7 @@ function People() {
               <th>Gender</th>
               <th>Date of Birth</th>
               <th>Nationality</th>
-              <th>Options</th>
+              {/* <th>Options</th> */}
             </tr>
           </thead>
           <tbody>
@@ -110,37 +107,37 @@ function People() {
               <div class="form-group row">
                 <label for="input2" class="col-sm-2 col-form-label">First Name</label>
                 <div class="col-sm-10">
-                  <input type="text" onChange={handleChange} name="firstName" class="form-control" id="input2" placeholder="First Name" />
+                  <input type="text" name="firstName" class="form-control" id="input2" placeholder="First Name" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input3" class="col-sm-2 col-form-label">Middle Name</label>
                 <div class="col-sm-10">
-                  <input type="text" onChange={handleChange} name="middleName" class="form-control" id="input3" placeholder="Middle Name" />
+                  <input type="text" name="middleName" class="form-control" id="input3" placeholder="Middle Name" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input4" class="col-sm-2 col-form-label">Last Name</label>
                 <div class="col-sm-10">
-                  <input type="text" onChange={handleChange} name="lastName" class="form-control" id="input4" placeholder="Last Name" />
+                  <input type="text" name="lastName" class="form-control" id="input4" placeholder="Last Name" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input4" class="col-sm-2 col-form-label">Gender</label>
                 <div class="col-sm-10">
-                  <input type="text" onChange={handleChange} name="gender" class="form-control" id="input4" placeholder="Gender" />
+                  <input type="text" name="gender" class="form-control" id="input4" placeholder="Gender" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input5" class="col-sm-2 col-form-label">Date of Birth</label>
                 <div class="col-sm-10">
-                  <input type="text" onChange={handleChange} name="dateOfBirth" class="form-control" id="input5" placeholder="YYYY-MM-DD" />
+                  <input type="text" name="dateOfBirth" class="form-control" id="input5" placeholder="YYYY-MM-DD" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input6" class="col-sm-2 col-form-label">Nationality</label>
                 <div class="col-sm-10">
-                  <input type="text" onChange={handleChange} name="nationality" class="form-control" id="input6" placeholder="Nationality" />
+                  <input type="text" name="nationality" class="form-control" id="input6" placeholder="Nationality" />
                 </div>
               </div>
               <div class="form-group row">

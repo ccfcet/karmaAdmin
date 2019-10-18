@@ -10,6 +10,38 @@ function Sidebar() {
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
+            <a class="nav-link" href="#submenu-people" data-toggle="collapse" aria-expanded="false" aria-controls="#submenu-people">
+              <span data-feather="users"></span>
+              People
+            </a>
+            <div class="collapse" id="submenu-people">
+              <ul class="nav flex-column sublist">
+                  <li class="nav-item">
+                      <NavLink exact to="/people" style={{textDecoration: 'none'}} className="nav-link">People</NavLink>
+                  </li>
+                  <li class="nav-item">
+                      <NavLink exact to="/people/information" style={{textDecoration: 'none'}} className="nav-link">Information</NavLink>
+                  </li>
+                  <li class="nav-item">
+                      <NavLink exact to="/people/information-slug" style={{textDecoration: 'none'}} className="nav-link">Information Slug</NavLink>
+                  </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#submenu-academics" data-toggle="collapse" aria-expanded="false" aria-controls="#submenu-academics">
+              <span data-feather="book"></span>
+              Academics
+            </a>
+            <div class="collapse" id="submenu-academics">
+              <ul class="nav flex-column sublist">
+                  <li class="nav-item">
+                      <NavLink exact to="/academics/courses-offered" style={{textDecoration: 'none'}} className="nav-link">Courses Offered</NavLink>
+                  </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="#submenu-student" data-toggle="collapse" aria-expanded="false" aria-controls="#submenu-student">
               <span data-feather="user"></span>
               Student
@@ -39,38 +71,6 @@ function Sidebar() {
                   </li>
                   <li class="nav-item">
                       <NavLink exact to="/student/course-enrollment-activity" style={{textDecoration: 'none'}} className="nav-link">Course Enrollement Activity</NavLink>
-                  </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#submenu-people" data-toggle="collapse" aria-expanded="false" aria-controls="#submenu-people">
-              <span data-feather="users"></span>
-              People
-            </a>
-            <div class="collapse" id="submenu-people">
-              <ul class="nav flex-column sublist">
-                  <li class="nav-item">
-                      <NavLink exact to="/people" style={{textDecoration: 'none'}} className="nav-link">People</NavLink>
-                  </li>
-                  <li class="nav-item">
-                      <NavLink exact to="/people/information" style={{textDecoration: 'none'}} className="nav-link">Information</NavLink>
-                  </li>
-                  <li class="nav-item">
-                      <NavLink exact to="/people/information-slug" style={{textDecoration: 'none'}} className="nav-link">Information Slug</NavLink>
-                  </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#submenu-academics" data-toggle="collapse" aria-expanded="false" aria-controls="#submenu-academics">
-              <span data-feather="book"></span>
-              Academics
-            </a>
-            <div class="collapse" id="submenu-academics">
-              <ul class="nav flex-column sublist">
-                  <li class="nav-item">
-                      <NavLink exact to="/academics/courses-offered" style={{textDecoration: 'none'}} className="nav-link">Courses Offered</NavLink>
                   </li>
               </ul>
             </div>

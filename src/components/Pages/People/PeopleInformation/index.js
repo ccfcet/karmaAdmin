@@ -1,6 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
+let api_root = process.env.REACT_APP_API_ROOT
 function PeopleInformation() {
+
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    axios.get(api_root + 'private/people/people_information')
+    .then(response => {
+      console.log(response.data.classes)
+      setData(response.data.classes)
+    }).catch(error => {
+      console.log(error)
+    })
+  }, [])
+
+  let content = data.map((item, key) => {
+    return(
+        <tr>
+          <td>{item.id}</td>
+          <td>{item.people_id}</td>
+          <td>{item.slug_id}</td>
+          <td>{item.data}</td>
+          {/* <td><i class="fa fa-pencil edit-icon"></i><i class="fa fa-minus-circle delete-icon"></i></td> */}
+        </tr>
+    )
+  })
+
+  function handlePost(e) {
+    e.preventDefault();
+    let newData = {
+      'peopleId': e.target.peopleId.value,
+      'slugId': e.target.slugId.value,
+      'data': e.target.data.value
+    }
+    axios.post(api_root + 'private/people/people_information', newData)
+    .then(response => {
+      console.log(response)
+    }).catch(error => {
+      console.log(error)
+    })
+    
+  }
   return (
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <h3 class="content-head">People Information</h3>
@@ -16,17 +58,13 @@ function PeopleInformation() {
               <th>People ID</th>
               <th>Slug ID</th>
               <th>Data</th>
-              <th>Options</th>
+              {/* <th>Options</th> */}
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1,001</td>
-              <td>Lorem</td>
-              <td>ipsum</td>
-              <td>dolor</td>
-              <td><i class="fa fa-pencil edit-icon"></i><i class="fa fa-minus-circle delete-icon"></i></td>
-            </tr>
+            <>
+            {content}
+            </>
           </tbody>
         </table>
         <nav aria-label="Page navigation example">
@@ -37,8 +75,6 @@ function PeopleInformation() {
                     </a>
                 </li>
                 <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
@@ -57,29 +93,31 @@ function PeopleInformation() {
               </button>
             </div>
             <div class="modal-body">
-            <form>
+            <form onSubmit={handlePost}>
               <div class="form-group row">
                 <label for="input2" class="col-sm-2 col-form-label">People ID</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input2" placeholder="People ID" />
+                  <input type="text" name="peopleId" class="form-control" id="input2" placeholder="People ID" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input3" class="col-sm-2 col-form-label">Slug</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input3" placeholder="Slug" />
+                  <input type="text" name="slugId" class="form-control" id="input3" placeholder="Slug" />
                 </div>
               </div>
               <div class="form-group row">
                 <label for="input4" class="col-sm-2 col-form-label">Data</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="input4" placeholder="Data" />
+                  <input type="text" nam="data" class="form-control" id="input4" placeholder="Data" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col">
+                      <input type="submit" class="btn btn-outline-success" value="Insert"/>
                 </div>
               </div>
             </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-outline-success">Insert</button>
             </div>
           </div>
         </div>
